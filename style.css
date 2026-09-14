@@ -1,0 +1,2319 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+body {
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    background: #f5eee4;
+
+    color: #34251f;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* =====================================================
+   MAIN EXPERIENCE
+===================================================== */
+
+#experience {
+    position: relative;
+
+    width: 100%;
+    height: 100svh;
+
+    overflow: hidden;
+
+    isolation: isolate;
+}
+
+
+/* =====================================================
+   SCENES
+===================================================== */
+
+.scene {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        35px
+        22px;
+
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(25px)
+        scale(.985);
+
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.22,.61,.36,1),
+        visibility .8s ease;
+
+    overflow: hidden;
+
+    z-index: 2;
+}
+
+.scene.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    z-index: 10;
+}
+
+
+/* =====================================================
+   WARM BACKGROUND
+===================================================== */
+
+.scene::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(255,255,255,.75),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(194,145,91,.12),
+            transparent 32%
+        );
+
+    pointer-events: none;
+
+    z-index: -2;
+}
+
+.scene::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border:
+        1px solid
+        rgba(124,86,52,.16);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =====================================================
+   DIFFERENT SCENE BACKGROUNDS
+===================================================== */
+
+#openingScene {
+    background:
+        linear-gradient(
+            135deg,
+            #f9f3eb,
+            #eee1d1
+        );
+}
+
+#storybookScene {
+    background:
+        linear-gradient(
+            135deg,
+            #f3e8d8,
+            #e9d7c0
+        );
+}
+
+#sirScene {
+    background:
+        linear-gradient(
+            135deg,
+            #f7eee4,
+            #ead9c6
+        );
+}
+
+#blackboardScene {
+    background:
+        linear-gradient(
+            135deg,
+            #e9dfd0,
+            #d9c8b4
+        );
+}
+
+#giftScene {
+    background:
+        linear-gradient(
+            135deg,
+            #f7ede2,
+            #ead7c2
+        );
+}
+
+#letterScene {
+    background:
+        linear-gradient(
+            135deg,
+            #efe2d2,
+            #dfccb7
+        );
+}
+
+#candleScene {
+    background:
+        linear-gradient(
+            135deg,
+            #f8efe4,
+            #e8d3bb
+        );
+}
+
+#birthdayScene {
+    background:
+        radial-gradient(
+            circle at center,
+            #633b31 0%,
+            #3c211e 55%,
+            #241514 100%
+        );
+
+    color: #fff;
+}
+
+#finalScene {
+    background:
+        linear-gradient(
+            135deg,
+            #f8f0e7,
+            #e8d6c2
+        );
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.page-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 650px;
+
+    margin: auto;
+
+    z-index: 20;
+
+    animation:
+        contentReveal
+        1s
+        cubic-bezier(.22,.61,.36,1)
+        both;
+}
+
+.scene:not(.active) .page-content {
+    animation: none;
+}
+
+@keyframes contentReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
+
+.small-label,
+.chapter-label {
+    margin-bottom: 20px;
+
+    color:
+        #9a7048;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+h1,
+h2 {
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    color:
+        #38251e;
+
+    font-weight: 600;
+
+    letter-spacing: -.5px;
+}
+
+h1 {
+    font-size:
+        clamp(
+            48px,
+            9vw,
+            82px
+        );
+
+    line-height: .98;
+}
+
+h2 {
+    font-size:
+        clamp(
+            38px,
+            7vw,
+            62px
+        );
+
+    line-height: 1.05;
+}
+
+.intro-text,
+.story-text,
+.gift-intro,
+.candle-text {
+    max-width: 500px;
+
+    margin:
+        25px auto;
+
+    color:
+        #6d584b;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   OPENING
+===================================================== */
+
+.opening-symbol {
+    width: 82px;
+    height: 82px;
+
+    margin:
+        0 auto
+        30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(151,107,65,.35);
+
+    color:
+        #a6784a;
+
+    background:
+        rgba(255,255,255,.45);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 38px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(100,65,40,.08);
+
+    animation:
+        softPulse
+        3s
+        ease-in-out
+        infinite;
+}
+
+@keyframes softPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+}
+
+.opening-content h1 {
+    margin-bottom: 8px;
+}
+
+.opening-content .intro-text {
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 24px;
+
+    color:
+        #745d4e;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.primary-button {
+    min-width: 215px;
+
+    min-height: 54px;
+
+    margin-top: 25px;
+
+    padding:
+        14px
+        27px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 13px;
+
+    border:
+        1px solid
+        #9c7148;
+
+    border-radius: 999px;
+
+    background:
+        #8c6040;
+
+    color: #fff;
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: .2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 25px
+        rgba(100,65,40,.16);
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+.primary-button span {
+    font-size: 19px;
+
+    transition:
+        transform .25s ease;
+}
+
+.primary-button:hover {
+    background:
+        #754d34;
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 16px 30px
+        rgba(100,65,40,.22);
+}
+
+.primary-button:hover span {
+    transform:
+        translateX(4px);
+}
+
+.primary-button:active {
+    transform:
+        scale(.96);
+}
+
+
+/* =====================================================
+   STORYBOOK
+===================================================== */
+
+.story-divider,
+.final-divider {
+    width: 180px;
+
+    margin:
+        25px auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    color:
+        #a87b4f;
+
+    font-size: 14px;
+}
+
+.story-divider span,
+.final-divider span {
+    width: 55px;
+    height: 1px;
+
+    background:
+        rgba(145,103,65,.35);
+}
+
+.story-text {
+    max-width: 470px;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 25px;
+
+    line-height: 1.45;
+
+    color:
+        #584338;
+}
+
+.circle-button {
+    width: 58px;
+    height: 58px;
+
+    margin-top: 28px;
+
+    border:
+        1px solid
+        rgba(140,96,64,.55);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.45);
+
+    color:
+        #805637;
+
+    font-size: 23px;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
+}
+
+.circle-button:hover {
+    background:
+        rgba(255,255,255,.72);
+
+    transform:
+        translateX(4px);
+}
+
+
+/* =====================================================
+   SURaj Sir SECTION
+===================================================== */
+
+.sir-content {
+    max-width: 600px;
+}
+
+.portrait-frame {
+    width: 130px;
+    height: 130px;
+
+    margin:
+        0 auto
+        24px;
+
+    padding: 7px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(143,101,62,.45);
+
+    background:
+        rgba(255,255,255,.42);
+
+    box-shadow:
+        0 18px 45px
+        rgba(92,58,37,.13);
+}
+
+.portrait-inner {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #9b7352,
+            #634535
+        );
+
+    color:
+        rgba(255,255,255,.95);
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 65px;
+
+    font-weight: 600;
+}
+
+.sir-content h2 {
+    font-size:
+        clamp(
+            45px,
+            8vw,
+            70px
+        );
+
+    margin-bottom: 30px;
+}
+
+.qualities {
+    width: 100%;
+    max-width: 480px;
+
+    margin:
+        0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.quality {
+    padding:
+        13px
+        18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid
+        rgba(126,91,61,.18);
+
+    color:
+        #806a5b;
+
+    font-size: 14px;
+
+    text-align: left;
+}
+
+.quality strong {
+    color:
+        #4f382d;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   BLACKBOARD
+===================================================== */
+
+.blackboard {
+    width: 100%;
+    max-width: 620px;
+
+    margin:
+        25px auto;
+
+    padding:
+        40px
+        30px;
+
+    border:
+        9px solid
+        #79583e;
+
+    border-radius: 7px;
+
+    background:
+        #34433b;
+
+    box-shadow:
+        inset 0 0 35px
+        rgba(0,0,0,.22),
+        0 20px 45px
+        rgba(67,45,30,.2);
+
+    transform:
+        rotate(-.4deg);
+}
+
+.chalk-line {
+    margin:
+        8px 0;
+
+    color:
+        rgba(255,255,255,.85);
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            18px,
+            4vw,
+            27px
+        );
+
+    line-height: 1.35;
+
+    opacity: 0;
+
+    transform:
+        translateY(8px);
+}
+
+.scene.active .chalk-line {
+    animation:
+        chalkAppear
+        .8s
+        ease
+        forwards;
+}
+
+.scene.active #chalkLine2 {
+    animation-delay: .7s;
+}
+
+.scene.active #chalkLine3 {
+    animation-delay: 1.4s;
+}
+
+.scene.active #chalkLine4 {
+    animation-delay: 2.1s;
+}
+
+@keyframes chalkAppear {
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+.chalk-line.emphasis {
+    color:
+        #f4dfaa;
+
+    font-weight: 600;
+}
+
+.after-board {
+    margin-top: 22px;
+
+    color:
+        #6c5648;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 21px;
+}
+
+
+/* =====================================================
+   GENERAL HIDDEN
+===================================================== */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =====================================================
+   BACKGROUND DECORATION
+===================================================== */
+
+.background {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.background span {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(151,108,69,.22);
+
+    animation:
+        floatDust
+        8s
+        ease-in-out
+        infinite;
+}
+
+.background span:nth-child(1) {
+    left: 8%;
+    top: 20%;
+}
+
+.background span:nth-child(2) {
+    left: 22%;
+    top: 72%;
+
+    animation-delay: 1s;
+}
+
+.background span:nth-child(3) {
+    left: 38%;
+    top: 12%;
+
+    animation-delay: 2s;
+}
+
+.background span:nth-child(4) {
+    left: 52%;
+    top: 84%;
+
+    animation-delay: 3s;
+}
+
+.background span:nth-child(5) {
+    left: 68%;
+    top: 28%;
+
+    animation-delay: 1.5s;
+}
+
+.background span:nth-child(6) {
+    left: 82%;
+    top: 68%;
+
+    animation-delay: 2.5s;
+}
+
+.background span:nth-child(7) {
+    left: 92%;
+    top: 15%;
+
+    animation-delay: 4s;
+}
+
+.background span:nth-child(8) {
+    left: 15%;
+    top: 90%;
+
+    animation-delay: 3.5s;
+}
+
+.background span:nth-child(9) {
+    left: 58%;
+    top: 8%;
+
+    animation-delay: 5s;
+}
+
+.background span:nth-child(10) {
+    left: 75%;
+    top: 92%;
+
+    animation-delay: 1.8s;
+}
+
+@keyframes floatDust {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(.7);
+
+        opacity: .15;
+    }
+
+    50% {
+        transform:
+            translateY(-25px)
+            scale(1.3);
+
+        opacity: .5;
+    }
+
+}
+/* =====================================================
+   CSS PART 2A
+   GIFTS + POPUP + LETTER
+===================================================== */
+
+
+/* =====================================================
+   GIFT SECTION
+===================================================== */
+
+.gift-content {
+    max-width: 650px;
+}
+
+.gift-content h2 {
+    margin-bottom: 8px;
+}
+
+.gift-intro {
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.gift-grid {
+    width: 100%;
+    max-width: 500px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+}
+
+.gift-box {
+    position: relative;
+
+    min-height: 125px;
+
+    padding: 20px 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    border:
+        1px solid
+        rgba(135,95,58,.25);
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.48);
+
+    color:
+        #5b4335;
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 28px
+        rgba(90,60,40,.08);
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+.gift-box span {
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 35px;
+
+    color:
+        #9a6e45;
+}
+
+.gift-box small {
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.gift-box:hover {
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(255,255,255,.72);
+
+    box-shadow:
+        0 16px 32px
+        rgba(90,60,40,.13);
+}
+
+.gift-box:active {
+    transform:
+        scale(.96);
+}
+
+
+/* =====================================================
+   GIFT MESSAGE
+===================================================== */
+
+.gift-message {
+    min-height: 30px;
+
+    margin:
+        20px auto
+        0;
+
+    color:
+        #71594b;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 19px;
+
+    line-height: 1.5;
+}
+
+.gift-message:not(:empty) {
+    animation:
+        messageAppear
+        .5s
+        ease
+        both;
+}
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   GIFT POPUP
+===================================================== */
+
+.gift-popup {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(45,29,22,.35);
+
+    backdrop-filter:
+        blur(7px);
+
+    -webkit-backdrop-filter:
+        blur(7px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+
+    z-index: 100;
+}
+
+.gift-popup.show {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+.popup-card {
+    position: relative;
+
+    width: min(100%, 420px);
+
+    padding:
+        38px
+        28px
+        32px;
+
+    border-radius: 25px;
+
+    background:
+        #f9f2e9;
+
+    border:
+        1px solid
+        rgba(130,90,55,.2);
+
+    box-shadow:
+        0 30px 70px
+        rgba(35,22,15,.25);
+
+    transform:
+        scale(.9)
+        translateY(15px);
+
+    transition:
+        transform .45s
+        cubic-bezier(.22,.61,.36,1);
+}
+
+.gift-popup.show .popup-card {
+    transform:
+        scale(1)
+        translateY(0);
+}
+
+.close-popup {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    width: 34px;
+    height: 34px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background:
+        rgba(120,85,55,.08);
+
+    color:
+        #6b4d39;
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.popup-icon {
+    margin-bottom: 18px;
+
+    color:
+        #a27449;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 40px;
+}
+
+.popup-text {
+    color:
+        #574237;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 24px;
+
+    line-height: 1.45;
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letter-content {
+    max-width: 650px;
+}
+
+.letter-paper {
+    position: relative;
+
+    width: 100%;
+    max-width: 560px;
+
+    margin:
+        0 auto;
+
+    padding:
+        38px
+        38px
+        32px;
+
+    text-align: left;
+
+    background:
+        #fffaf2;
+
+    border:
+        1px solid
+        rgba(133,94,59,.2);
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(77,49,32,.13);
+
+    transform:
+        rotate(-.4deg);
+}
+
+.letter-paper::before {
+    content: "";
+
+    position: absolute;
+
+    left: 25px;
+    right: 25px;
+
+    top: 18px;
+
+    height: 1px;
+
+    background:
+        rgba(157,112,73,.18);
+}
+
+.letter-paper::after {
+    content: "";
+
+    position: absolute;
+
+    left: 25px;
+    right: 25px;
+
+    bottom: 15px;
+
+    height: 1px;
+
+    background:
+        rgba(157,112,73,.12);
+}
+
+.letter-title {
+    margin-bottom: 20px;
+
+    color:
+        #5b3e2f;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 28px;
+
+    font-weight: 700;
+}
+
+.letter-paper p:not(.letter-title):not(.letter-highlight):not(.signature) {
+    margin:
+        12px 0;
+
+    color:
+        #695449;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 18px;
+
+    line-height: 1.55;
+}
+
+.letter-highlight {
+    margin-top: 20px;
+
+    color:
+        #76513d;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    line-height: 1.5;
+}
+
+.signature {
+    margin-top: 24px;
+
+    color:
+        #8a6243;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 20px;
+
+    font-style: italic;
+}
+/* =====================================================
+   CSS PART 2B
+   CANDLE + BIRTHDAY + FINAL + RESPONSIVE
+===================================================== */
+
+
+/* =====================================================
+   CANDLE
+===================================================== */
+
+.candle-content h2 {
+    margin-bottom: 5px;
+}
+
+.candle-text {
+    margin:
+        10px auto
+        20px;
+}
+
+.candle {
+    position: relative;
+
+    width: 100px;
+    height: 190px;
+
+    margin:
+        0 auto;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        transform .25s ease;
+}
+
+.candle:hover {
+    transform:
+        translateY(-4px);
+}
+
+.candle-body {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 0;
+
+    width: 72px;
+    height: 125px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        8px
+        8px
+        5px
+        5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d8b89a,
+            #f5dfc5,
+            #cda687
+        );
+
+    box-shadow:
+        inset 7px 0 12px
+        rgba(100,60,35,.1),
+        0 15px 25px
+        rgba(65,40,25,.13);
+}
+
+.candle-body::before {
+    content: "";
+
+    position: absolute;
+
+    left: 10px;
+    right: 10px;
+
+    top: 28px;
+
+    height: 2px;
+
+    background:
+        rgba(139,94,59,.16);
+
+    box-shadow:
+        0 24px rgba(139,94,59,.12),
+        0 48px rgba(139,94,59,.1);
+}
+
+.candle-body span {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(133,87,52,.18);
+}
+
+.candle-body span:nth-child(1) {
+    left: 18px;
+    top: 18px;
+}
+
+.candle-body span:nth-child(2) {
+    right: 15px;
+    top: 65px;
+}
+
+.candle-body span:nth-child(3) {
+    left: 25px;
+    bottom: 18px;
+}
+
+.wick {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 125px;
+
+    width: 3px;
+    height: 15px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 3px;
+
+    background:
+        #3f3029;
+
+    z-index: 3;
+}
+
+.flame {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 137px;
+
+    width: 34px;
+    height: 50px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        50%;
+
+    background:
+        #e99c4a;
+
+    filter:
+        blur(.2px);
+
+    box-shadow:
+        0 0 25px
+        rgba(231,153,66,.55),
+        0 0 55px
+        rgba(231,153,66,.25);
+
+    animation:
+        flameMove
+        .8s
+        ease-in-out
+        infinite alternate;
+
+    transform-origin:
+        center bottom;
+
+    z-index: 4;
+}
+
+.flame-inner {
+    position: absolute;
+
+    left: 50%;
+    bottom: 6px;
+
+    width: 15px;
+    height: 27px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        50%;
+
+    background:
+        #fff4cf;
+}
+
+@keyframes flameMove {
+
+    from {
+        transform:
+            translateX(-50%)
+            rotate(-3deg)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            rotate(3deg)
+            scale(1.08);
+    }
+
+}
+
+.candle.extinguished .flame {
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        scale(.2);
+
+    animation: none;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+}
+
+.candle.extinguished .wick {
+    background:
+        #5d514a;
+}
+
+.candle-hint {
+    margin-top: 18px;
+
+    color:
+        #876c5a;
+
+    font-size: 13px;
+
+    letter-spacing: .5px;
+
+    animation:
+        hintPulse
+        2s
+        ease-in-out
+        infinite;
+}
+
+@keyframes hintPulse {
+
+    0%,
+    100% {
+        opacity: .5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+/* =====================================================
+   BIRTHDAY REVEAL
+===================================================== */
+
+.birthday-content {
+    max-width: 850px;
+
+    z-index: 30;
+}
+
+.birthday-small {
+    margin-bottom: 22px;
+
+    color:
+        rgba(255,238,205,.72);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 5px;
+}
+
+.birthday-stars {
+    margin-bottom: 15px;
+
+    color:
+        #e6c58d;
+
+    font-size: 20px;
+
+    letter-spacing: 3px;
+
+    opacity: .9;
+}
+
+.birthday-content h1 {
+    color:
+        #f8e8c8;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            52px,
+            11vw,
+            110px
+        );
+
+    line-height: .88;
+
+    letter-spacing:
+        -2px;
+
+    text-shadow:
+        0 10px 40px
+        rgba(0,0,0,.3);
+}
+
+.birthday-line {
+    width: 100px;
+    height: 1px;
+
+    margin:
+        25px auto
+        17px;
+
+    background:
+        #cba56f;
+}
+
+.birthday-content h2 {
+    color:
+        #fff0d1;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            42px,
+            8vw,
+            72px
+        );
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+.birthday-wish {
+    max-width: 550px;
+
+    margin:
+        25px auto
+        0;
+
+    color:
+        rgba(255,244,222,.82);
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 21px;
+
+    line-height: 1.5;
+}
+
+.final-note {
+    margin-top: 25px;
+
+    color:
+        rgba(255,239,212,.55);
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+.confetti-container {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 10;
+}
+
+.confetti {
+    position: absolute;
+
+    top: -30px;
+
+    width: 8px;
+    height: 14px;
+
+    opacity: 0;
+
+    animation:
+        confettiFall
+        4s
+        linear
+        forwards;
+}
+
+@keyframes confettiFall {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(-20px)
+            rotate(0);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+    }
+
+}
+
+
+/* =====================================================
+   FIREWORKS
+===================================================== */
+
+.fireworks-container {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 15;
+}
+
+.firework {
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        #f3d29a;
+
+    box-shadow:
+        0 0 12px
+        rgba(243,210,154,.8);
+
+    animation:
+        fireworkParticle
+        1.2s
+        ease-out
+        forwards;
+}
+
+@keyframes fireworkParticle {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(.25);
+    }
+
+}
+
+
+/* =====================================================
+   FINAL SCENE
+===================================================== */
+
+.final-content {
+    max-width: 600px;
+}
+
+.final-symbol {
+    width: 80px;
+    height: 80px;
+
+    margin:
+        0 auto
+        25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(137,96,60,.3);
+
+    background:
+        rgba(255,255,255,.4);
+
+    color:
+        #9b7049;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 40px;
+
+    animation:
+        softPulse
+        3s
+        ease-in-out
+        infinite;
+}
+
+.final-content h2 {
+    margin-bottom: 8px;
+}
+
+.final-message {
+    color:
+        #6b5345;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            24px,
+            5vw,
+            34px
+        );
+
+    line-height: 1.35;
+}
+
+.final-divider {
+    margin-top: 30px;
+}
+
+.final-from {
+    color:
+        #876144;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 24px;
+
+    font-style: italic;
+}
+
+.restart-button {
+    margin-top: 30px;
+
+    border: 0;
+
+    background: transparent;
+
+    color:
+        #947052;
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    opacity: .7;
+
+    transition:
+        opacity .2s ease;
+}
+
+.restart-button:hover {
+    opacity: 1;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .scene {
+        padding:
+            25px
+            18px;
+    }
+
+    .scene::after {
+        inset: 9px;
+    }
+
+    .small-label,
+    .chapter-label {
+        margin-bottom: 15px;
+
+        font-size: 8px;
+
+        letter-spacing: 3px;
+    }
+
+    h1 {
+        font-size: 44px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    .intro-text,
+    .story-text,
+    .gift-intro,
+    .candle-text {
+        font-size: 15px;
+
+        line-height: 1.65;
+    }
+
+    .opening-symbol {
+        width: 65px;
+        height: 65px;
+
+        margin-bottom: 22px;
+
+        font-size: 30px;
+    }
+
+    .opening-content .intro-text {
+        font-size: 21px;
+    }
+
+    .primary-button {
+        min-height: 51px;
+
+        min-width: 195px;
+
+        margin-top: 20px;
+
+        padding:
+            12px
+            22px;
+
+        font-size: 13px;
+    }
+
+    .story-divider {
+        margin:
+            19px auto;
+    }
+
+    .story-text {
+        font-size: 22px;
+    }
+
+    .circle-button {
+        width: 52px;
+        height: 52px;
+
+        margin-top: 18px;
+    }
+
+    .portrait-frame {
+        width: 100px;
+        height: 100px;
+
+        margin-bottom: 18px;
+    }
+
+    .portrait-inner {
+        font-size: 50px;
+    }
+
+    .sir-content h2 {
+        font-size: 46px;
+
+        margin-bottom: 20px;
+    }
+
+    .quality {
+        padding:
+            10px
+            12px;
+
+        font-size: 12px;
+    }
+
+    .blackboard {
+        padding:
+            27px
+            17px;
+
+        border-width: 6px;
+
+        margin:
+            18px auto;
+    }
+
+    .chalk-line {
+        font-size: 17px;
+
+        margin: 6px 0;
+    }
+
+    .after-board {
+        margin-top: 15px;
+
+        font-size: 18px;
+    }
+
+    .gift-grid {
+        gap: 10px;
+    }
+
+    .gift-box {
+        min-height: 105px;
+
+        padding:
+            15px
+            10px;
+
+        border-radius: 17px;
+    }
+
+    .gift-box span {
+        font-size: 29px;
+    }
+
+    .gift-box small {
+        font-size: 10px;
+    }
+
+    .gift-message {
+        font-size: 17px;
+
+        margin-top: 14px;
+    }
+
+    .popup-card {
+        padding:
+            32px
+            22px
+            27px;
+    }
+
+    .popup-text {
+        font-size: 21px;
+    }
+
+    .letter-paper {
+        padding:
+            29px
+            22px
+            25px;
+    }
+
+    .letter-title {
+        font-size: 24px;
+
+        margin-bottom: 15px;
+    }
+
+    .letter-paper p:not(.letter-title):not(.letter-highlight):not(.signature) {
+        font-size: 15px;
+
+        line-height: 1.5;
+
+        margin: 9px 0;
+    }
+
+    .letter-highlight {
+        font-size: 17px;
+    }
+
+    .signature {
+        font-size: 18px;
+
+        margin-top: 17px;
+    }
+
+    .candle {
+        transform:
+            scale(.86);
+    }
+
+    .candle:hover {
+        transform:
+            scale(.86);
+    }
+
+    .candle-text {
+        margin-bottom: 8px;
+    }
+
+    .candle-hint {
+        margin-top: 7px;
+
+        font-size: 11px;
+    }
+
+    .birthday-small {
+        font-size: 8px;
+
+        letter-spacing: 3px;
+    }
+
+    .birthday-stars {
+        font-size: 16px;
+    }
+
+    .birthday-content h1 {
+        font-size: 50px;
+
+        letter-spacing: -1px;
+    }
+
+    .birthday-line {
+        margin:
+            18px auto
+            12px;
+    }
+
+    .birthday-content h2 {
+        font-size: 43px;
+    }
+
+    .birthday-wish {
+        margin-top: 18px;
+
+        font-size: 18px;
+    }
+
+    .final-note {
+        font-size: 10px;
+
+        margin-top: 18px;
+    }
+
+    .final-symbol {
+        width: 65px;
+        height: 65px;
+
+        margin-bottom: 18px;
+
+        font-size: 32px;
+    }
+
+    .final-message {
+        font-size: 25px;
+    }
+
+}
